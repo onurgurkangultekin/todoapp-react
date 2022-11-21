@@ -20,10 +20,10 @@ function AddForm({ addTask }) {
   return (
     <form onSubmit={onSubmit}>
       <div className="row">
-        <div className="col-7">
+        <div className="col-2">
           <FormInputField value={userInput} onChange={changeHandler} />
         </div>
-        <div className="col-5">
+        <div className="col-2">
           <FormSubmitButton />
         </div>
       </div>

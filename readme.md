@@ -5,7 +5,11 @@ This is a To-do react app where you can add items with the form and remove items
 ## Description
 
 - Next.js is used for server-side rendering app
-- react and react-dom modules are used for enabling react library
+- react and react-dom modules are used for enabling react
+
+## Screenshot
+
+![img](./public/images/screenshot.png)
 
 ## Run the app
 
