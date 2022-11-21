@@ -1,0 +1,23 @@
+{
+  "name": "todoapp2",
+  "version": "1.0.0",
+  "description": "todo app with react",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "onurgultekin",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^13.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.2.0"
+  }
+}
