@@ -18,16 +18,18 @@ function AddForm({ addTask }) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className="row">
-        <div className="col-2">
-          <FormInputField value={userInput} onChange={changeHandler} />
+    <div className="row mb-1 ms-1 me-1 mt-2">
+      <form onSubmit={onSubmit}>
+        <div className="row">
+          <div className="col-7">
+            <FormInputField value={userInput} onChange={changeHandler} />
+          </div>
+          <div className="col-5">
+            <FormSubmitButton buttonText={"Add Item"} />
+          </div>
         </div>
-        <div className="col-2">
-          <FormSubmitButton />
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

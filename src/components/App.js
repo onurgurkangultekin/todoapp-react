@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddForm from "./AddForm";
 import TodoItems from "./TodoItems";
+import WarningMessage from "./WarningMessage";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -8,23 +9,37 @@ function App() {
     { id: 21443634531, text: "Eat Carrots" },
   ]);
 
+  const [showWarning, setShowWarning] = useState(false);
+
   function deleteItem(id) {
     setTodoList((todoList) => todoList.filter((rec) => rec.id !== id));
   }
 
+  function deleteAllItems() {
+    setTodoList([]);
+  }
+
+  function doesItemExist(userInput) {
+    const exist = todoList.findIndex((item) => item.text === userInput);
+    return exist >= 0 ? true : false;
+  }
+
   const addTask = (userInput) => {
-    const newValue = { text: userInput, id: Date.now() };
-    setTodoList((todoList) => [newValue, ...todoList]);
+    userInput = userInput.trim();
+    const itemExists = doesItemExist(userInput);
+    setShowWarning(itemExists);
+    if (!itemExists) {
+      const newValue = { text: userInput, id: Date.now() };
+      setTodoList((todoList) => [newValue, ...todoList]);
+    }
   };
 
   return (
     <div className="container">
-      <div className="row mb-1 ms-1 me-1 mt-2">
-        <AddForm addTask={addTask} />
-      </div>
-      <div className="row mb-3 ms-1 me-1 mt-3">
-        <TodoItems entries={todoList} deleteItem={deleteItem} />
-      </div>
+      <h1>Todo App</h1>
+      <AddForm addTask={addTask} />
+      <WarningMessage showWarning={showWarning} />
+      <TodoItems todoList={todoList} deleteItem={deleteItem} deleteAllItems={deleteAllItems} />
     </div>
   );
 }
